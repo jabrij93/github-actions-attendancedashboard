@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
-        
+
         <!-- Welcome banner -->
         <x-dashboard.welcome-banner />
 
@@ -26,11 +26,11 @@
                     </svg>
                     <span class="hidden xs:block ml-2">Add View</span>
                 </button>
-                
+
             </div>
 
         </div>
-        
+
         <!-- Cards -->
         <div class="grid grid-cols-12 gap-6">
 
@@ -40,20 +40,11 @@
             <!-- Line chart (Acme Advanced) -->
             <x-dashboard.dashboard-card-02 :dataFeed="$dataFeed" />
 
-            <!-- Line chart (Acme Professional) -->
-            <x-dashboard.dashboard-card-03 :dataFeed="$dataFeed" />
-
             <!-- Bar chart (Direct vs Indirect) -->
             <x-dashboard.dashboard-card-04 />
 
             <!-- Line chart (Real Time Value) -->
             <x-dashboard.dashboard-card-05 />
-
-            <!-- Doughnut chart (Top Countries) -->
-            <x-dashboard.dashboard-card-06 />
-
-            <!-- Table (Top Channels) -->
-            <x-dashboard.dashboard-card-07 />
 
             <!-- Line chart (Sales Over Time)  -->
             <x-dashboard.dashboard-card-08 />
@@ -65,14 +56,10 @@
             <x-dashboard.dashboard-card-10 />
 
             <!-- Card (Reasons for Refunds)   -->
-            <x-dashboard.dashboard-card-11 />             
+            <x-dashboard.dashboard-card-11 />
 
             <!-- Card (Recent Activity) -->
             <x-dashboard.dashboard-card-12 />
-            
-            <!-- Card (Income/Expenses) -->
-            <x-dashboard.dashboard-card-13 />
-
         </div>
 
     </div>

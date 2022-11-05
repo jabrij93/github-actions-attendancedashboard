@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataFeedController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,9 @@ use App\Http\Controllers\DashboardController;
 */
 
 Route::redirect('/', 'login');
+
+Route::get('users', [UserController::class, 'index']);
+Route::get('users/profile/{id}', [UserController::class, 'show']);
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
