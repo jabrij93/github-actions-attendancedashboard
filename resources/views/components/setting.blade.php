@@ -15,9 +15,11 @@
                     <a href="/admin/posts/create" class="{{ request()->is('admin/posts/create') ? 'text-blue-500' : '' }}"> Part time </a>
                 </li>
 
+
                 <li>
-                    <a href="/profile/edit/{{ Auth::user()->id }}"><br> Edit </a>
+                    <a href="/users/profile/edit"><br> Edit </a>
                 </li>
+
             </ul>
         </aside>
 

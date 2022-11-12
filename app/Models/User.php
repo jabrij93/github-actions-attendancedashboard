@@ -24,9 +24,16 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
+        'images',
+        'staff_id',
         'name',
         'email',
+        'gender',
+        'department',
         'password',
+        'address',
+        'phonenumber',
+        'company_name',
         'role',
     ];
 
@@ -59,4 +66,9 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function Department()
+    {
+        return $this->belongsTo(Department::class, 'department');
+    }
 }

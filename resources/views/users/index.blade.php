@@ -71,7 +71,7 @@ $role = Auth::user()-> role ?? null
                                     <div class="text-sm text-gray-900"> {{ $row->email }} </div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    {{ $row->department }}
+                                    {{ $row->Department->department ?? null }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                     {{ $row->company_name }}
@@ -82,7 +82,7 @@ $role = Auth::user()-> role ?? null
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> <a href=""> Edit </a></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> <a href="/users/profile/edit/{{ $row-> id }}"> Edit </a></td>
                             </tr>
                             @endforeach
                         </tbody>
