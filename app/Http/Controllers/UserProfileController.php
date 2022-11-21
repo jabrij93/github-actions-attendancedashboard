@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserProfileController extends Controller
 {
@@ -44,11 +45,12 @@ class UserProfileController extends Controller
         $users->staff_id = $r->staff_id;
         $users->name = $r->name;
         $users->email = $r->email;
-        $users->password = $r->password;
+        $users->password = bcrypt($r->get('password'));
         $users->gender = $r->gender;
         $users->department = $r->department;
         $users->phonenumber = $r->phonenumber;
         $users->company_name = $r->company_name;
+
         $users->save();
 
         $result['data'] = $users;
@@ -96,7 +98,7 @@ class UserProfileController extends Controller
         $users->staff_id = $r->staff_id;
         $users->name = $r->name;
         $users->email = $r->email;
-        $users->password = $r->password;
+        $users->password = bcrypt($r->get('password'));
         $users->gender = $r->gender;
         $users->department = $r->department;
         $users->phonenumber = $r->phonenumber;
