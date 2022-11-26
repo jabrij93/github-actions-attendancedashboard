@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserProfileController;
 
 /*
@@ -16,9 +17,12 @@ use App\Http\Controllers\UserProfileController;
 */
 
 Route::get('/getdata', [UserProfileController::class, 'getdata']);
+Route::get('/getdata/{id}', [UserProfileController::class, 'showdata']);
 Route::post('/adduser', [UserProfileController::class, 'adddata']);
 Route::delete('/deleteuser', [UserProfileController::class, 'deleteuser']);
 Route::PUT('/updateuser', [UserProfileController::class, 'updateuser']);
+
+Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

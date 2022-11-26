@@ -37,8 +37,6 @@ class UserController extends Controller
         $data->email     = $request->email;
         $data->phonenumber = $request->phonenumber;
         $data->department  = $request->department;
-        $data->company_name = $request->company_name;
-
 
         $data->save();
 

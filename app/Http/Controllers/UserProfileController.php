@@ -23,6 +23,21 @@ class UserProfileController extends Controller
         return response()->json($result);
     }
 
+    public function showdata($id)
+    {
+        $result = [];
+        $result['status'] = false;
+        $result['message'] = "something error";
+
+        $data = User::find($id);
+        $result['data'] = $data;
+
+        $result['status'] = true;
+        $result['message'] = "suksess";
+
+        return response()->json($result);
+    }
+
     public function adddata(Request $r)
     {
         $result = [];
