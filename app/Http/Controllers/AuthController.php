@@ -20,13 +20,24 @@ class AuthController extends Controller
 
         //Check password
         if (!$user || !Hash::check($fields['password'], $user->password)) {
-            return response([
-                'message' => 'Bad Creds'
-            ], 401);
+            $result = [];
+            $result['status'] = false;
+            $result['message'] = "Bad creds";
+
+            return response()->json($result);
         } else {
-            return response([
-                'message' => 'Login successfully'
-            ]);
+            $result = [];
+            $result['status'] = true;
+            $result['message'] = "Login successfully";
+
+            $data = [
+                'staff_id' => $user->staff_id,
+                'name' => $user->name
+            ];
+
+            $result['data'] = $data;
+
+            return response()->json($result);
         }
     }
 }
