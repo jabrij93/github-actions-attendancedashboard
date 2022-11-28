@@ -139,9 +139,9 @@ class UserProfileController extends Controller
         $time = $mytime->format('H:i:s');
         $date = $mytime->format('Y-m-d');
 
-        $users->date_CheckIn = $date;
-        $users->time_CheckIn = $time;
-        $users->location_CheckIn = $r->location_CheckIn;
+        $users->date_checkIn = $date;
+        $users->time_checkIn = $time;
+        $users->location_checkIn = $r->location_checkIn;
 
         $users->save();
 
@@ -158,11 +158,13 @@ class UserProfileController extends Controller
         $result['status'] = false;
         $result['message'] = "something error";
 
-        $users = User::findOrFail($r->staff_id);
+        $users = User::where('staff_id', $r->staff_id)->first();
 
-        $users->staff_id = $r->staff_id;
-        $users->time_CheckOut = $r->time_CheckOut;
-        $users->location_CheckOut = $r->location_CheckOut;
+        $mytime = Carbon::now();
+        $time = $mytime->format('H:i:s');
+
+        $users->time_checkOut = $time;
+        $users->location_checkOut = $r->location_checkOut;
 
         $users->save();
 

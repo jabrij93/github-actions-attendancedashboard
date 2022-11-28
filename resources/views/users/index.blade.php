@@ -84,7 +84,10 @@ $role = Auth::user()-> role ?? null
                                     {{$row -> time_checkIn}} <br>
                                     {{$row -> location_checkIn}}
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$row -> date_checkOut}} <br>
+                                    {{$row -> time_checkOut}} <br>
+                                    {{$row -> location_checkOut}}
+                                </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> <a href="/users/profile/edit/{{ $row->id }}"> Edit </a></td>
                             </tr>
                             @endforeach
