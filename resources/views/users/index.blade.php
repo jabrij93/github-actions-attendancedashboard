@@ -80,9 +80,12 @@ $role = Auth::user()-> role ?? null
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> <a href="users/profile/{{ $row->id }}"> View profile </a></td>
 
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$row -> date_checkIn}} <br>
+                                    {{$row -> time_checkIn}} <br>
+                                    {{$row -> location_checkIn}}
+                                </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> <a href="/users/profile/edit/{{ $row-> id }}"> Edit </a></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> <a href="/users/profile/edit/{{ $row->id }}"> Edit </a></td>
                             </tr>
                             @endforeach
                         </tbody>

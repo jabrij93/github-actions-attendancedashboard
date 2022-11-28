@@ -26,6 +26,11 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->integer('phonenumber')->nullable();
             $table->string('company_name')->nullable();
+            $table->string('date_checkIn')->nullable();
+            $table->string('time_checkIn')->nullable();
+            $table->string('location_checkIn')->nullable();
+            $table->string('time_checkOut')->nullable();
+            $table->string('location_checkOut')->nullable();
             $table->string('role');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();

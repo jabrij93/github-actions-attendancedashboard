@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -117,6 +118,52 @@ class UserProfileController extends Controller
         $users->department = $r->department;
         $users->phonenumber = $r->phonenumber;
         $users->company_name = $r->company_name;
+        $users->save();
+
+        $result['data'] = $users;
+        $result['status'] = true;
+        $result['message'] = "suksess add data";
+
+        return response()->json($result);
+    }
+
+    public function userClockIn(Request $r)
+    {
+        $result = [];
+        $result['status'] = false;
+        $result['message'] = "something error";
+
+        $users = User::where('staff_id', $r->staff_id)->first();
+
+        $mytime = Carbon::now();
+        $time = $mytime->format('H:i:s');
+        $date = $mytime->format('Y-m-d');
+
+        $users->date_CheckIn = $date;
+        $users->time_CheckIn = $time;
+        $users->location_CheckIn = $r->location_CheckIn;
+
+        $users->save();
+
+        $result['data'] = $users;
+        $result['status'] = true;
+        $result['message'] = "suksess add data";
+
+        return response()->json($result);
+    }
+
+    public function userClockOut(Request $r)
+    {
+        $result = [];
+        $result['status'] = false;
+        $result['message'] = "something error";
+
+        $users = User::findOrFail($r->staff_id);
+
+        $users->staff_id = $r->staff_id;
+        $users->time_CheckOut = $r->time_CheckOut;
+        $users->location_CheckOut = $r->location_CheckOut;
+
         $users->save();
 
         $result['data'] = $users;

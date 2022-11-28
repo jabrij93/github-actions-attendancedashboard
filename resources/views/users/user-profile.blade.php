@@ -39,7 +39,6 @@
                                     <div class="text-sm font-medium text-gray-500">
                                         Company : {{$info -> company_name }}
                                     </div>
-
                                 </td>
                             </tr>
 
@@ -50,10 +49,10 @@
                                     </div>
                                 </td>
                                 <td rowspan="2" class="px-6 py-4 text-sm font-medium">
-                                    <p class=" text-sm font-medium text-gray-500">
-                                        Recent
+                                    <p class=" text-sm font-medium text-gray-500"> Check in : {{$info -> date_checkIn}} <br>
+                                        {{$info -> time_checkIn}} <br>
+                                        {{$info -> location_checkIn}}
                                     </p>
-                                    <p class=" text-sm font-medium text-gray-500"> Check in :</p>
 
                                     <p class=" text-sm font-medium text-gray-500"> <br> Check out :</p>
                                 </td>
