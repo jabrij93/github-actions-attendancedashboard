@@ -9,7 +9,7 @@
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
                                         <div class="flex-shrink-0">
-                                            <img class="h-32 w-32 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
+                                            <img class="h-32 w-32 rounded-full" src="/profilephoto_images/{{$info->images}}" alt="">
                                         </div>
                                     </div>
                                 </td>
@@ -34,7 +34,7 @@
                                         Phone Number : {{$info -> phonenumber }}
                                     </div>
                                     <div class="text-sm font-medium text-gray-500">
-                                        Department : {{$info->Department->department ?? null}}
+                                        Department : {{$info -> Department->department ?? null}}
                                     </div>
                                     <div class="text-sm font-medium text-gray-500">
                                         Company : {{$info -> company_name }}

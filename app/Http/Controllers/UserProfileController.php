@@ -45,7 +45,6 @@ class UserProfileController extends Controller
         $result['message'] = "something error";
 
         $users = new User;
-        $images = null;
 
         if ($r->hasFile('images')) {
             $file = $r->file('images');

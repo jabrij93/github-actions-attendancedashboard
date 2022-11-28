@@ -30,6 +30,16 @@ class UserController extends Controller
     {
         $data = User::findOrFail($id);
 
+        if ($request->hasFile('images')) {
+            $file = $request->file('images');
+            $name = date('YmdHis') . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path() . '/profilephoto_images', $name);
+            $images = $name;
+        } else {
+            $images = $request->images;
+        }
+
+        $data->images = $images;
         $data->staff_id  = $request->staff_id;
         $data->name      = $request->name;
         $data->gender    = $request->gender;
