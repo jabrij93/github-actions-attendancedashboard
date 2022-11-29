@@ -1,12 +1,7 @@
 <!-- Search button -->
 <div x-data="{ searchOpen: false }">
     <!-- Button -->
-    <button
-        class="w-8 h-8 flex items-center justify-center bg-slate-100 hover:bg-slate-200 transition duration-150 rounded-full"
-        :class="{ 'bg-slate-200': searchOpen }"
-        @click.prevent="searchOpen = true;if (searchOpen) $nextTick(()=>{$refs.searchInput.focus()});"
-        aria-controls="search-modal"
-    >
+    <button class="w-8 h-8 flex items-center justify-center bg-slate-100 hover:bg-slate-200 transition duration-150 rounded-full" :class="{ 'bg-slate-200': searchOpen }" @click.prevent="searchOpen = true;if (searchOpen) $nextTick(()=>{$refs.searchInput.focus()});" aria-controls="search-modal">
         <span class="sr-only">Search</span>
         <svg class="w-4 h-4" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
             <path class="fill-current text-slate-500" d="M7 14c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zM7 2C4.243 2 2 4.243 2 7s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5z" />
@@ -14,38 +9,10 @@
         </svg>
     </button>
     <!-- Modal backdrop -->
-    <div
-        class="fixed inset-0 bg-slate-900 bg-opacity-30 z-50 transition-opacity"
-        x-show="searchOpen"
-        x-transition:enter="transition ease-out duration-200"
-        x-transition:enter-start="opacity-0"
-        x-transition:enter-end="opacity-100"
-        x-transition:leave="transition ease-out duration-100"
-        x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0"
-        aria-hidden="true"
-        x-cloak
-    ></div>
+    <div class="fixed inset-0 bg-slate-900 bg-opacity-30 z-50 transition-opacity" x-show="searchOpen" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-out duration-100" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" aria-hidden="true" x-cloak></div>
     <!-- Modal dialog -->
-    <div
-        id="search-modal"
-        class="fixed inset-0 z-50 overflow-hidden flex items-start top-20 mb-4 justify-center px-4 sm:px-6"
-        role="dialog"
-        aria-modal="true"
-        x-show="searchOpen"
-        x-transition:enter="transition ease-in-out duration-200"
-        x-transition:enter-start="opacity-0 translate-y-4"
-        x-transition:enter-end="opacity-100 translate-y-0"
-        x-transition:leave="transition ease-in-out duration-200"
-        x-transition:leave-start="opacity-100 translate-y-0"
-        x-transition:leave-end="opacity-0 translate-y-4"
-        x-cloak
-    >
-        <div
-            class="bg-white overflow-auto max-w-2xl w-full max-h-full rounded shadow-lg"
-            @click.outside="searchOpen = false"
-            @keydown.escape.window="searchOpen = false"
-        >   
+    <div id="search-modal" class="fixed inset-0 z-50 overflow-hidden flex items-start top-20 mb-4 justify-center px-4 sm:px-6" role="dialog" aria-modal="true" x-show="searchOpen" x-transition:enter="transition ease-in-out duration-200" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in-out duration-200" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-4" x-cloak>
+        <div class="bg-white overflow-auto max-w-2xl w-full max-h-full rounded shadow-lg" @click.outside="searchOpen = false" @keydown.escape.window="searchOpen = false">
             <!-- Search form -->
             <form class="border-b border-slate-200">
                 <div class="relative">
@@ -138,5 +105,5 @@
                 </div>
             </div>
         </div>
-    </div>                    
+    </div>
 </div>

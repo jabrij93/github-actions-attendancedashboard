@@ -10,16 +10,12 @@
                 <li>
                     <a href="/admin/posts" class="{{ request()->is('admin/posts') ? 'text-blue-500' : '' }}"> Permanent </a>
                 </li>
-
                 <li>
                     <a href="/admin/posts/create" class="{{ request()->is('admin/posts/create') ? 'text-blue-500' : '' }}"> Part time </a>
                 </li>
-
-
                 <li>
                     <a href="/users/profile/edit"><br> Edit </a>
                 </li>
-
             </ul>
         </aside>
 
