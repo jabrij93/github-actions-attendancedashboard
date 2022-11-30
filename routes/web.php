@@ -18,10 +18,15 @@ use App\Http\Controllers\UserController;
 
 Route::redirect('/', 'login');
 
+// Register new staff
+Route::get('/register', [UserController::class, 'create'])->name('register');
+Route::post('/register', [UserController::class, 'store']);
+
 Route::get('users', [UserController::class, 'index']);
 Route::get('users/profile/{id}', [UserController::class, 'show']);
 Route::get('users/profile/edit/{id}', [UserController::class, 'edit']);
 Route::post('users/profile/edit/{id}', [UserController::class, 'update']);
+
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
