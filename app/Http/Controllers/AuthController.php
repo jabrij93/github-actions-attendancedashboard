@@ -31,6 +31,7 @@ class AuthController extends Controller
             $result['message'] = "Login successfully";
 
             $data = [
+                'id' => $user->id,
                 'staff_id' => $user->staff_id,
                 'name' => $user->name
             ];
