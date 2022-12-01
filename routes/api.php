@@ -17,7 +17,7 @@ use App\Http\Controllers\UserProfileController;
 */
 
 Route::get('/getdata', [UserProfileController::class, 'getdata']);
-Route::get('/getdata/{id}', [UserProfileController::class, 'showdata']);
+Route::post('/getdata/{id}', [UserProfileController::class, 'showdata']);
 Route::post('/adduser', [UserProfileController::class, 'adddata']);
 Route::delete('/deleteuser', [UserProfileController::class, 'deleteuser']);
 Route::PUT('/updateuser', [UserProfileController::class, 'updateuser']);
