@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AttendanceRecord;
 use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -133,7 +134,7 @@ class UserProfileController extends Controller
         $result['status'] = false;
         $result['message'] = "something error";
 
-        $users = User::where('staff_id', $r->staff_id)->first();
+        $users = User::where('staff_id', $r->staff_id)->select(['staff_id', 'date_checkIn', 'time_checkIn', 'location_checkIn'])->first();
 
         $mytime = Carbon::now();
         $time = $mytime->format('H:i:s');
@@ -144,6 +145,14 @@ class UserProfileController extends Controller
         $users->location_checkIn = $r->location_checkIn;
 
         $users->save();
+
+        // keluarkan data yang sekarang
+        $currentData = $users->toArray();
+
+        // simpan data yang sekarang dalam table attendance record
+        $attendanceRecord = new AttendanceRecord();
+        $attendanceRecord->fill($currentData);
+        $attendanceRecord->save();
 
         $result['data'] = $users;
         $result['status'] = true;
@@ -158,7 +167,7 @@ class UserProfileController extends Controller
         $result['status'] = false;
         $result['message'] = "something error";
 
-        $users = User::where('staff_id', $r->staff_id)->first();
+        $users = User::where('staff_id', $r->staff_id)->select(['staff_id', 'time_checkOut', 'location_checkOut'])->first();
 
         $mytime = Carbon::now();
         $time = $mytime->format('H:i:s');
@@ -167,6 +176,14 @@ class UserProfileController extends Controller
         $users->location_checkOut = $r->location_checkOut;
 
         $users->save();
+
+        // keluarkan data yang sekarang
+        $currentData = $users->toArray();
+
+        // simpan data yang sekarang dalam table attendance record
+        $attendanceRecord = new AttendanceRecord();
+        $attendanceRecord->fill($currentData);
+        $attendanceRecord->save();
 
         $result['data'] = $users;
         $result['status'] = true;

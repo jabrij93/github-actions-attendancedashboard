@@ -54,7 +54,9 @@
                                         {{$info -> location_checkIn}}
                                     </p>
 
-                                    <p class=" text-sm font-medium text-gray-500"> <br> Check out :</p>
+                                    <p class=" text-sm font-medium text-gray-500"> Check Out : {{$info -> time_checkOut}} <br>
+                                        {{$info -> location_checkOut}}
+                                    </p>
                                 </td>
                             </tr>
 
