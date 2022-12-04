@@ -185,6 +185,14 @@ class UserProfileController extends Controller
             $users->toArray()
         );
 
+        // keluarkan data yang sekarang
+        $currentData = $users->toArray();
+
+        // simpan data yang sekarang dalam table attendance record
+        $attendanceRecord = new AttendanceRecord();
+        $attendanceRecord->fill($currentData);
+        $attendanceRecord->save();
+
         $result['data'] = $users;
         $result['status'] = true;
         $result['message'] = "suksess add data";
