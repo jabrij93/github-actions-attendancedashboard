@@ -136,9 +136,10 @@ class UserProfileController extends Controller
 
         $users = User::where('staff_id', $r->staff_id)->select(['staff_id', 'date_checkIn', 'time_checkIn', 'location_checkIn'])->first();
 
-        $mytime = Carbon::now();
-        $time = $mytime->format('H:i:s');
-        $date = $mytime->format('Y-m-d');
+        $date = date('Y-m-d');
+        $date = $r->date_checkIn;
+        $time = date('H:i:s');
+        $time = $r->time_checkIn;
 
         $users->date_checkIn = $date;
         $users->time_checkIn = $time;
@@ -169,21 +170,20 @@ class UserProfileController extends Controller
 
         $users = User::where('staff_id', $r->staff_id)->select(['staff_id', 'time_checkOut', 'location_checkOut'])->first();
 
-        $mytime = Carbon::now();
-        $time = $mytime->format('H:i:s');
+        $date = date('Y-m-d');
+        $date = $r->date_checkIn;
+        $time = date('H:i:s');
+        $time = $r->time_checkOut;
 
+        $users->date_checkIn = $date;
         $users->time_checkOut = $time;
         $users->location_checkOut = $r->location_checkOut;
 
-        $users->save();
-
-        // keluarkan data yang sekarang
-        $currentData = $users->toArray();
-
-        // simpan data yang sekarang dalam table attendance record
-        $attendanceRecord = new AttendanceRecord();
-        $attendanceRecord->fill($currentData);
-        $attendanceRecord->save();
+        // Save the updated data to the database
+        AttendanceRecord::updateOrCreate(
+            ['staff_id' => $users->staff_id, 'date_checkIn' => $date],
+            $users->toArray()
+        );
 
         $result['data'] = $users;
         $result['status'] = true;
