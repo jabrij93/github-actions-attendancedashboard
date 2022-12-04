@@ -10,6 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
+
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -18,23 +19,14 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
+
     /**
      * The attributes that are mass assignable.
      *
      * @var string[]
      */
     protected $fillable = [
-        'images',
-        'staff_id',
-        'name',
-        'email',
-        'gender',
-        'department',
-        'password',
-        'address',
-        'phonenumber',
-        'company_name',
-        'role',
+        'staff_id', 'date_checkIn', 'time_checkIn', 'location_checkIn', 'time_checkOut', 'location_checkOut'
     ];
 
     /**
@@ -70,5 +62,10 @@ class User extends Authenticatable
     public function Department()
     {
         return $this->belongsTo(Department::class, 'department');
+    }
+
+    public function log()
+    {
+        return $this->hasMany(AttendanceRecord::class);
     }
 }

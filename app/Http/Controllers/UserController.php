@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AttendanceRecord;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,6 +14,12 @@ class UserController extends Controller
     {
         $user = User::with('department')->get();
         return view('users.index', compact('user'));
+    }
+
+    public function history()
+    {
+        $history = AttendanceRecord::get();
+        return view('users.history', compact('history'));
     }
 
     public function create()

@@ -21,7 +21,7 @@
             <div class="flex items-center space-x-3">
 
                 <!-- Register new user  -->
-                <x-register-user />
+                <!-- <x-register-user /> -->
 
                 <!-- Search Button with Modal -->
                 <x-modal-search />

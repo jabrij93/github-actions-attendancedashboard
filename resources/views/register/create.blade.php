@@ -52,7 +52,7 @@
                         Address
                     </label>
 
-                    <textarea class="border border-gray-400 p-2 w-full" name="address" id="address" value="" required></textarea>
+                    <textarea class="border border-gray-400 p-2 w-full" name="address" id="address" value=""></textarea>
 
                     @error('address')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -117,7 +117,6 @@
                 <div class="mt-6">
                     <button type="submit" class="bg-blue-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-blue-600"> Register </button>
                 </div>
-
             </form>
     </x-setting2>
 </x-app-layout>

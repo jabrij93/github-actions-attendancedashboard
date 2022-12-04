@@ -7,7 +7,6 @@ $role = Auth::user()-> role ?? null
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 ">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                 <div class="flex flex-col items-start shadow overflow-hidden border-b border-gray-200 sm:rounded-lg ">
-
                     <div class="mb-6 mx-24">
                         <button type="submit" class="bg-gray-400 text-white uppercase font-semibold text-xs py-2 px-10 hover:bg-gray-600"> Category </button>
                     </div>
@@ -52,7 +51,6 @@ $role = Auth::user()-> role ?? null
                         </thead>
 
                         <tbody class="bg-white divide-y divide-gray-200">
-
                             @php
                             $no = 1
                             @endphp

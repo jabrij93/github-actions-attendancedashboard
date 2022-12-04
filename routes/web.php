@@ -22,11 +22,12 @@ Route::redirect('/', 'login');
 Route::get('/register', [UserController::class, 'create'])->name('register');
 Route::post('/register', [UserController::class, 'store']);
 
+// User list, view profile and update profile
 Route::get('users', [UserController::class, 'index']);
 Route::get('users/profile/{id}', [UserController::class, 'show']);
 Route::get('users/profile/edit/{id}', [UserController::class, 'edit']);
 Route::post('users/profile/edit/{id}', [UserController::class, 'update']);
-
+Route::get('history', [UserController::class, 'history']);
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
