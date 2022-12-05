@@ -39,12 +39,6 @@ $role = Auth::user()-> role ?? null
                                     Pay-per-Hour
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Check-In
-                                </th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Check-Out
-                                </th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Edit
                                 </th>
                             </tr>
@@ -78,17 +72,7 @@ $role = Auth::user()-> role ?? null
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> <a href="users/profile/{{ $row->id }}"> View profile </a></td>
 
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
-                                @php
-                                $latestRecord = App\Models\AttendanceRecord::orderBy('created_at', 'desc')->first();
-                                @endphp
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$latestRecord -> date_checkIn }} <br>
-                                    {{$latestRecord -> time_checkIn }} <br>
-                                    {{$latestRecord -> location_checkIn }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> <br>
-                                    {{$latestRecord -> time_checkOut }} <br>
-                                    {{$latestRecord -> location_checkOut }}
-                                </td>
+
 
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> <a href="/users/profile/edit/{{ $row->id }}"> Edit </a></td>
                             </tr>
