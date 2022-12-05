@@ -48,16 +48,18 @@
                                         Pay-per-hour
                                     </div>
                                 </td>
+                                @foreach(App\Models\AttendanceRecord::get() as $data)
                                 <td rowspan="2" class="px-6 py-4 text-sm font-medium">
-                                    <p class=" text-sm font-medium text-gray-500"> Check in : {{$info -> date_checkIn}} <br>
-                                        {{$info -> time_checkIn}} <br>
-                                        {{$info -> location_checkIn}}
+                                    <p class=" text-sm font-medium text-gray-500"> Check in : {{$data -> date_checkIn}} <br>
+                                        {{$data -> time_checkIn}} <br>
+                                        {{$data -> location_checkIn}}
                                     </p>
 
-                                    <p class=" text-sm font-medium text-gray-500"> Check Out : {{$info -> time_checkOut}} <br>
-                                        {{$info -> location_checkOut}}
+                                    <p class=" text-sm font-medium text-gray-500"> Check Out : {{$data -> time_checkOut}} <br>
+                                        {{$data -> location_checkOut}}
                                     </p>
                                 </td>
+                                @endforeach
                             </tr>
 
                             <tr>

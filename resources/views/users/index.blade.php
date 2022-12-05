@@ -78,14 +78,18 @@ $role = Auth::user()-> role ?? null
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> <a href="users/profile/{{ $row->id }}"> View profile </a></td>
 
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$row -> date_checkIn}} <br>
-                                    {{$row -> time_checkIn}} <br>
-                                    {{$row -> location_checkIn}}
+                                @php
+                                $latestRecord = App\Models\AttendanceRecord::orderBy('created_at', 'desc')->first();
+                                @endphp
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$latestRecord -> date_checkIn}} <br>
+                                    {{$latestRecord -> time_checkIn}} <br>
+                                    {{$latestRecord -> location_checkIn}}
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$row -> date_checkOut}} <br>
-                                    {{$row -> time_checkOut}} <br>
-                                    {{$row -> location_checkOut}}
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> <br>
+                                    {{$latestRecord -> time_checkOut}} <br>
+                                    {{$latestRecord -> location_checkOut}}
                                 </td>
+
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> <a href="/users/profile/edit/{{ $row->id }}"> Edit </a></td>
                             </tr>
                             @endforeach
