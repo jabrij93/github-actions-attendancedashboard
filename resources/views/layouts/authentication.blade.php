@@ -30,11 +30,13 @@
                     <div class="flex-1">
                         <div class="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
                             <!-- Logo -->
-
+                            <a class="block" href="{{ route('dashboard') }}">
+                                <img src="/images/logoar.jpeg" width="42" height="42" style="border-radius: 50%">
+                            </a>
                         </div>
                     </div>
 
-                    <div class="w-full max-w-sm mx-auto px-4 py-8">
+                    <div class=" w-full max-w-sm mx-auto px-4 py-8">
                         {{ $slot }}
                     </div>
 
