@@ -144,15 +144,10 @@ class UserProfileController extends Controller
         $users->time_checkIn = $time;
         $users->location_checkIn = $r->location_checkIn;
 
-        $users->save();
-
-        // keluarkan data yang sekarang
-        $currentData = $users->toArray();
-
-        // simpan data yang sekarang dalam table attendance record
-        $attendanceRecord = new AttendanceRecord();
-        $attendanceRecord->fill($currentData);
-        $attendanceRecord->save();
+        AttendanceRecord::updateOrCreate(
+            ['staff_id' => $users->staff_id, 'date_checkIn' => $date],
+            $users->toArray()
+        );
 
         $result['data'] = $users;
         $result['status'] = true;
