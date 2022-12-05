@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-setting2 heading="Staff Attendance History">
         <div class="flex flex-col mt-6">
-            <table class="min-w-0 mx-4 mb-14 divide-y divide-gray-200">
+            <table class="min-w-0 mx-4 mb-14 divide-y divide-gray-200 overflow-x-auto">
                 <thead class="bg-gray-50">
                     <tr>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
