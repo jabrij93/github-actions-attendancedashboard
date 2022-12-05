@@ -48,18 +48,19 @@
                                         Pay-per-hour
                                     </div>
                                 </td>
-                                @foreach(App\Models\AttendanceRecord::get() as $data)
+                                @php
+                                $latestRecord = App\Models\AttendanceRecord::orderBy('created_at', 'desc')->first();
+                                @endphp
                                 <td rowspan="2" class="px-6 py-4 text-sm font-medium">
-                                    <p class=" text-sm font-medium text-gray-500"> Check in : {{$data -> date_checkIn}} <br>
-                                        {{$data -> time_checkIn}} <br>
-                                        {{$data -> location_checkIn}}
+                                    <p class=" text-sm font-medium text-gray-500"> Check in : {{$latestRecord -> date_checkIn}} <br>
+                                        {{$latestRecord -> time_checkIn}} <br>
+                                        {{$latestRecord -> location_checkIn}}
                                     </p>
 
-                                    <p class=" text-sm font-medium text-gray-500"> Check Out : {{$data -> time_checkOut}} <br>
-                                        {{$data -> location_checkOut}}
+                                    <p class=" text-sm font-medium text-gray-500"> Check Out : {{$latestRecord -> time_checkOut}} <br>
+                                        {{$latestRecord -> location_checkOut}}
                                     </p>
                                 </td>
-                                @endforeach
                             </tr>
 
                             <tr>
