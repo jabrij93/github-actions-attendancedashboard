@@ -1,7 +1,7 @@
 @props(['heading'])
 
-<section class="max-w-5xl mx-auto mt-6">
-    <h1 class="text-lg font-bold mb-8 pb-2 border-b">{{ $heading }}</h1>
+<section class="max-w-4xl mx-auto mt-6 ml-10">
+    <h1 class="text-lg font-bold mb-8 border-b ml-5">{{ $heading }}</h1>
 
     <div class="flex">
         <main class="flex-1">
