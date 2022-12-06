@@ -29,16 +29,19 @@ jobs:
       run: echo "{name}={value}" >> $GITHUB_STATE
 
     - name: Set output
-      run: echo "{name}={value}" >> $GITHUB_OUTPUT      
+      run: echo "{name}={value}" >> $GITHUB_OUTPUT
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
+        
+    - name: Update dependencies
+      run: composer update
 
-    - name: npm install
-      run: npm install
+    - name: install npm 
+      run:  npm install
 
-    - name: npm run production
-      run: npm run production        
+    - name: run npm 
+      run:  npm run dev       
     
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
