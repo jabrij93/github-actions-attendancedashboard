@@ -1,7 +1,6 @@
 {
     "private": true,
     "scripts": {
-        "preinstall": "npx npm-force-resolutions",
         "dev": "vite",
         "build": "vite build"
     },
@@ -22,8 +21,5 @@
         "chartjs-adapter-moment": "^1.0.0",
         "flatpickr": "^4.6.13",
         "moment": "^2.29.4"
-    },
-    "resolutions": {
-        "node-sass": "https://registry.npmjs.org/dart-sass/-/dart-sass-1.25.0.tgz"
     }
 }
