@@ -25,9 +25,6 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-php-
 
-    - name: Node.js 16
-      uses: actions/checkout@v2
-
     - name: Save state
       run: echo "{name}={value}" >> $GITHUB_STATE
 
@@ -35,7 +32,13 @@ jobs:
       run: echo "{name}={value}" >> $GITHUB_OUTPUT      
 
     - name: Install dependencies
-      run: composer install --prefer-dist --no-progress        
+      run: composer install --prefer-dist --no-progress
+
+    - name: npm install
+      run: npm install
+
+    - name: npm run production
+      run: npm run production        
     
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
@@ -44,6 +47,4 @@ jobs:
         username: ${{ secrets.ftp_username }}
         password: ${{ secrets.ftp_password }}
         server-dir: /home/sabahlok/hackathon2.dfa-learning.sabahloka.com/
-        port: 21
-        protocol: ftp  
 
