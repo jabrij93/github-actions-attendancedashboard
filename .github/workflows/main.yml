@@ -34,7 +34,7 @@ jobs:
         server: ftp.sabahloka.com
         username: ${{ secrets.ftp_username }}
         password: ${{ secrets.ftp_password }}
-        server-dir: /home/sabahlok/hackathon2.dfa-learning.sabahloka.com
+        server-dir: /home/sabahlok/hackathon2.dfa-learning.sabahloka.com/
         port: 21
         protocol: ftp  
 
