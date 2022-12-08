@@ -16,6 +16,8 @@ use App\Http\Controllers\UserProfileController;
 |
 */
 
+Route::post('/login', [AuthController::class, 'login']);
+
 Route::get('/getdata', [UserProfileController::class, 'getdata']);
 Route::post('/getdata/{id}', [UserProfileController::class, 'showdata']);
 Route::post('/adduser', [UserProfileController::class, 'adddata']);
@@ -23,8 +25,6 @@ Route::delete('/deleteuser', [UserProfileController::class, 'deleteuser']);
 Route::PUT('/updateuser', [UserProfileController::class, 'updateuser']);
 Route::post('/updateuserClockIn',   [UserProfileController::class, 'userClockIn']);
 Route::post('/updateuserClockOut', [UserProfileController::class, 'userClockOut']);
-
-Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
