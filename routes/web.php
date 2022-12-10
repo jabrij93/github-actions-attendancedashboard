@@ -17,12 +17,6 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-//Clear config cache:
-Route::get('/config-cache', function () {
-    Artisan::call('config:cache');
-    // Do whatever you want either a print a message or exit
-});
-
 Route::redirect('/', 'login');
 
 // Register new staff
