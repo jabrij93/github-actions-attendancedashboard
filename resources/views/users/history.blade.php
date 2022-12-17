@@ -47,12 +47,14 @@
                             <div class="text-sm text-gray-900"> {{ $row->time_checkIn }} </div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {{ $row->location_checkIn }}
+                            <div class="text-sm text-gray-900"> {{ $row->location_checkIn }} </div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {{ $row->time_checkOut }}
+                            <div class="text-sm text-gray-900"> {{ $row->time_checkOut }} </div>
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> {{ $row->location_checkOut }} </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            <div class="text-sm text-gray-900"> {{ $row->location_checkOut }} </div>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

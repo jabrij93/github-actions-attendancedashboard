@@ -20,8 +20,8 @@ use App\Http\Controllers\DashboardController;
 Route::redirect('/', 'login');
 
 // Register new staff
-Route::get('/register', [UserController::class, 'create'])->name('register');
-Route::post('/register', [UserController::class, 'store']);
+Route::get('register', [UserController::class, 'create'])->name('register');
+Route::post('register', [UserController::class, 'store']);
 
 // User list, view profile and update profile
 Route::get('users', [UserController::class, 'index']);

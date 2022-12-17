@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-setting2 heading="Register New User">
         <div class="flex flex-col">
-            <form method="post" action="/register" enctype="multipart/form-data">
+            <form method="post" action="register" enctype="multipart/form-data">
                 @csrf
 
                 <div class="mb-6">

@@ -136,7 +136,7 @@ class UserProfileController extends Controller
 
         $users = User::where('staff_id', $r->staff_id)->select(['staff_id', 'date_checkIn', 'time_checkIn', 'location_checkIn'])->first();
 
-        $mytime = Carbon::now('Asia/Kuala_Lumpur');
+        $mytime = Carbon::now('Asia/Singapore');
         $date = $mytime->format('Y-m-d');
         $time = $mytime->format('H:i:s');
 
@@ -164,7 +164,7 @@ class UserProfileController extends Controller
 
         $users = User::where('staff_id', $r->staff_id)->select(['staff_id', 'time_checkOut', 'location_checkOut'])->first();
 
-        $mytime = Carbon::now('Asia/Kuala_Lumpur');
+        $mytime = Carbon::now('Asia/Singapore');
         $date = $mytime->format('Y-m-d');
         $time = $mytime->format('H:i:s');
 
