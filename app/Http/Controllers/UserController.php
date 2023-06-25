@@ -12,14 +12,32 @@ class UserController extends Controller
 {
     public function index()
     {
-        $user = User::with('department')->get();
-        return view('users.index', compact('user'));
+        return view('users.index', ['user' => $this->getUsers()]);
+    }
+
+    protected function getUsers() {
+        $searchUser = User::with('department');
+        
+        if(request('search')) {
+            $searchUser -> where('name', 'like', '%' . request('search') . '%')
+                        -> orWhere('email', 'like', '%' . request('search') . '%');
+        }
+
+        $user = $searchUser->latest()->get();
+
+        return $user->toArray();
     }
 
     public function history()
     {
         $history = AttendanceRecord::get();
         return view('users.history', compact('history'));
+    }
+
+    public function onlyForTesting()
+    {
+        $onlyfortest = AttendanceRecord::get();
+        return view('users.testing', compact('onlyfortest'));
     }
 
     public function create()

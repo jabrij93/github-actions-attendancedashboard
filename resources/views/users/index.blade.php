@@ -11,6 +11,17 @@ $role = Auth::user()-> role ?? null
                         <button type="submit" class="bg-gray-400 text-white uppercase font-semibold text-xs py-2 px-10 hover:bg-gray-600"> Category </button>
                     </div>
 
+                    <!-- Search -->
+                    <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl px-3 py-2">
+                        <form method="GET" action="#">
+                            <input type="text" 
+                            name="search" 
+                            placeholder="Find something"
+                            value= "{{ request('search') }}"
+                                class="bg-transparent placeholder-black font-semibold text-sm">
+                        </form>
+                    </div>
+
                     <table class="min-w-0 mx-24 mb-14 divide-y divide-gray-200">
                         <thead class="bg-gray-50">
                             <tr>
@@ -54,27 +65,26 @@ $role = Auth::user()-> role ?? null
                                     <div class="text-sm text-gray-900"> {{ $no++ }} </div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900"> {{ $row->staff_id }} </div>
+                                    <div class="text-sm text-gray-900"> {{ $row['staff_id'] }} </div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900"> {{ $row->name }} </div>
+                                    <div class="text-sm text-gray-900"> {{ $row['name'] }} </div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900"> {{ $row->email }} </div>
+                                    <div class="text-sm text-gray-900"> {{ $row['email'] }} </div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                     {{ $row->Department->department ?? null }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    {{ $row->company_name }}
+                                    {{ $row['company_name'] }}
                                 </td>
 
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> <a href="users/profile/{{ $row->id }}"> View profile </a></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> <a href="users/profile/{{ $row['id'] }}"> View profile </a></td>
 
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
 
-
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> <a href="/users/profile/edit/{{ $row->id }}"> Edit </a></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> <a href="/users/profile/edit/{{ $row['id'] }}"> Edit </a></td>
                             </tr>
                             @endforeach
                         </tbody>

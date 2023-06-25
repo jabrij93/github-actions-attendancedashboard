@@ -140,12 +140,46 @@ class UserProfileController extends Controller
         $date = $mytime->format('Y-m-d');
         $time = $mytime->format('H:i:s');
 
+        $users->date_checkIn = $date    ;
+        $users->time_checkIn = $time;
+        $users->location_checkIn = $r->location_checkIn;
+
+        AttendanceRecord::updateOrCreate(
+            [
+                'staff_id' => $users->staff_id, 
+            'date_checkIn' => $date
+            ],
+            $users->toArray()
+        );
+
+        $result['data'] = $users;
+        $result['status'] = true;
+        $result['message'] = "suksess add data";
+
+        return response()->json($result);
+    }
+
+    public function clockInTemporary(Request $r)
+    {
+        $result = [];
+        $result['status'] = false;
+        $result['message'] = "something error";
+
+        $users = User::where('staff_id', $r->staff_id)->select(['staff_id', 'date_checkIn', 'time_checkIn', 'location_checkIn'])->first();
+
+        $mytime = Carbon::now('Asia/Singapore');
+        $date = $mytime->format('Y-m-d');
+        $time = $mytime->format('H:i:s');
+
         $users->date_checkIn = $date;
         $users->time_checkIn = $time;
         $users->location_checkIn = $r->location_checkIn;
 
         AttendanceRecord::updateOrCreate(
-            ['staff_id' => $users->staff_id, 'date_checkIn' => $date],
+            [ 
+                'staff_id'  => $users->staff_id, 
+             'date_checkIn' => $date
+            ],
             $users->toArray()
         );
 
@@ -162,7 +196,41 @@ class UserProfileController extends Controller
         $result['status'] = false;
         $result['message'] = "something error";
 
-        $users = User::where('staff_id', $r->staff_id)->select(['staff_id', 'time_checkOut', 'location_checkOut'])->first();
+        $users = User::where('staff_id', $r->staff_id)
+                ->select(['staff_id', 'date_checkIn', 'time_checkOut', 'location_checkOut'])
+                ->first();
+
+        $mytime = Carbon::now('Asia/Singapore');
+        $date = $mytime->format('Y-m-d');
+        $time = $mytime->format('H:i:s');
+
+        $users->date_checkIn = $date;
+        $users->time_checkOut = $time;
+        $users->location_checkOut = $r->location_checkOut;
+
+        // Save the updated data to the database
+        AttendanceRecord::updateOrCreate(
+            [
+                'staff_id' => $users->staff_id, 
+                'date_checkIn' => $date
+            ],
+            $users->toArray()
+        );
+
+        $result['data'] = $users;
+        $result['status'] = true;
+        $result['message'] = "suksess add data";
+
+        return response()->json($result);
+    }
+
+    public function clockOutTemporary(Request $r)
+    {
+        $result = [];
+        $result['status'] = false;
+        $result['message'] = "something error";
+
+        $users = User::where('staff_id', $r->staff_id)->select(['staff_id', 'date_checkIn', 'time_checkOut', 'location_checkOut'])->first();
 
         $mytime = Carbon::now('Asia/Singapore');
         $date = $mytime->format('Y-m-d');

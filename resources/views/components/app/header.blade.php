@@ -4,7 +4,6 @@
 
             <!-- Header: Left side -->
             <div class="flex">
-
                 <!-- Hamburger button -->
                 <button class="text-slate-500 hover:text-slate-600 lg:hidden" @click.stop="sidebarOpen = !sidebarOpen" aria-controls="sidebar" :aria-expanded="sidebarOpen">
                     <span class="sr-only">Open sidebar</span>
@@ -14,7 +13,6 @@
                         <rect x="4" y="17" width="16" height="2" />
                     </svg>
                 </button>
-
             </div>
 
             <!-- Header: Right side -->
@@ -37,9 +35,7 @@
 
                 <!-- User button -->
                 <x-dropdown-profile align="right" />
-
             </div>
-
         </div>
     </div>
 </header>
