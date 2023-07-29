@@ -25,14 +25,7 @@ class User extends Authenticatable
      *
      * @var string[]
      */
-    protected $fillable = [
-        'staff_id',
-        'date_checkIn',
-        'time_checkIn',
-        'location_checkIn',
-        'time_checkOut',
-        'location_checkOut'
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.
